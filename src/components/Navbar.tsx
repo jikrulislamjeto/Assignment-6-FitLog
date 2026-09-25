@@ -1,49 +1,163 @@
-import React from 'react';
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+
+import logo from "@/assets/logo.png";
+
+const navLinks = [
+  {
+    name: "WORKOUT",
+    href: "/",
+  },
+  {
+    name: "MY PLAN",
+    href: "/my-plan",
+  },
+];
 
 const Navbar = () => {
-    return (
-        <div className="navbar bg-base-100 shadow-sm">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+  const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className="border-b border-white/10 bg-[#0b0d0d] text-white">
+      <div className="container mx-auto">
+        <div className="flex h-20 items-center justify-between px-5 sm:px-8 lg:px-10">
+
+          {/* Logo */}
+          {/* Logo + FITLOG */}
+<Link
+  href="/"
+  onClick={() => setMenuOpen(false)}
+  className="flex items-center gap-2.5"
+>
+  <Image
+    src={logo}
+    alt="FitLog Logo"
+    priority
+    width={42}
+    height={42}
+    className="h-9 w-9 object-contain sm:h-10 sm:w-10"
+  />
+
+  <span className="text-xl font-black tracking-tight sm:text-2xl">
+    FIT<span className="text-[#ccff00]">LOG</span>
+  </span>
+</Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-10 md:flex">
+            {navLinks.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm font-bold tracking-wide transition ${
+                    isActive
+                      ? "text-[#ccff00]"
+                      : "text-white/60 hover:text-white"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Desktop Counters */}
+          <div className="hidden items-center gap-3 md:flex">
+
+            {/* Plan */}
+            <Link
+              href="/my-plan"
+              className="rounded-full bg-[#ccff00] px-4 py-2 text-xs font-bold tracking-wide text-black transition hover:scale-105"
+            >
+              PLAN <span className="ml-1">0</span>
+            </Link>
+
+            {/* Saved */}
+            <Link
+              href="/my-plan"
+              className="rounded-full border border-white/30 px-4 py-2 text-xs font-bold tracking-wide text-white transition hover:border-[#ccff00] hover:text-[#ccff00]"
+            >
+              SAVED <span className="ml-1">0</span>
+            </Link>
+
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="rounded-lg border border-white/10 p-2 md:hidden"
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="border-t border-white/10 px-5 py-5 md:hidden">
+            <nav className="flex flex-col gap-3">
+
+              {navLinks.map((link) => {
+                const isActive =
+                  link.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(link.href);
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`rounded-lg px-4 py-3 text-sm font-bold ${
+                      isActive
+                        ? "bg-[#ccff00] text-black"
+                        : "bg-white/5 text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+
+              {/* Mobile Counters */}
+              <div className="flex gap-3 pt-2">
+
+                <Link
+                  href="/my-plan"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex-1 rounded-full bg-[#ccff00] px-4 py-3 text-center text-xs font-bold text-black"
+                >
+                  PLAN 0
+                </Link>
+
+                <Link
+                  href="/my-plan"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex-1 rounded-full border border-white/30 px-4 py-3 text-center text-xs font-bold"
+                >
+                  SAVED 0
+                </Link>
+
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
-      <ul
-        tabIndex={-1}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
-      </ul>
-    </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2 bg-base-100 w-40 z-1">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
-</div>
-    );
+    </header>
+  );
 };
 
 export default Navbar;
