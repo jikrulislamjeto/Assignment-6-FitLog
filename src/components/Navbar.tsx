@@ -3,7 +3,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Dumbbell, Menu, X } from "lucide-react";
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import Logo from '@/assets/logo.png';
 import { useWorkout } from "@/context/WorkoutContext";
 
 const Navbar = () => {
@@ -27,7 +29,7 @@ const Navbar = () => {
           aria-label="FitLog Home"
         >
           <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#192419] border border-[#293d22] group-hover:border-[#CCFF00]/60 transition-colors">
-            <Dumbbell className="w-5 h-5 text-[#CCFF00] transition-transform group-hover:rotate-12 duration-300" />
+            <Image src={Logo} alt="FitLog Logo" width={20} height={20} className=" text-[#CCFF00] transition-transform group-hover:rotate-12 duration-300" />
           </div>
           <span className="font-oswald text-xl sm:text-2xl font-bold tracking-tight text-white uppercase group-hover:text-[#CCFF00] transition-colors">
             FITLOG
@@ -41,21 +43,19 @@ const Navbar = () => {
         >
           <Link
             href="/"
-            className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
-              isWorkoutsActive
+            className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${isWorkoutsActive
                 ? "bg-[#192419] text-[#CCFF00] shadow-sm border border-[#2c4021]"
                 : "text-zinc-400 hover:text-white hover:bg-brand-card-hover"
-            }`}
+              }`}
           >
             Workouts
           </Link>
           <Link
             href="/my-plan"
-            className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
-              isMyPlanActive
+            className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${isMyPlanActive
                 ? "bg-[#192419] text-[#CCFF00] shadow-sm border border-[#2c4021]"
                 : "text-zinc-400 hover:text-white hover:bg-brand-card-hover"
-            }`}
+              }`}
           >
             My Plan
           </Link>
@@ -110,11 +110,10 @@ const Navbar = () => {
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className={`flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isWorkoutsActive
+              className={`flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold transition ${isWorkoutsActive
                   ? "bg-[#192419] text-[#CCFF00] border border-[#2c4021]"
                   : "text-zinc-300 hover:bg-brand-card-hover"
-              }`}
+                }`}
             >
               <span>Workouts</span>
               {isWorkoutsActive && (
@@ -124,11 +123,10 @@ const Navbar = () => {
             <Link
               href="/my-plan"
               onClick={() => setMobileMenuOpen(false)}
-              className={`flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isMyPlanActive
+              className={`flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold transition ${isMyPlanActive
                   ? "bg-[#192419] text-[#CCFF00] border border-[#2c4021]"
                   : "text-zinc-300 hover:bg-brand-card-hover"
-              }`}
+                }`}
             >
               <span>My Plan</span>
               <div className="flex items-center gap-2">

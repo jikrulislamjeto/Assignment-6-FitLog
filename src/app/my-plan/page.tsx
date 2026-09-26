@@ -77,12 +77,12 @@ const MyPlanPage = () => {
       </div>
 
       {/* Metrics Summary Row (3 stat cards) */}
-      <div className="mt-8 grid grid-cols-3 rounded-2xl bg-[#14171e] border border-[#232731] divide-x divide-[#232731] p-6 sm:p-8 shadow-xl">
+      <div className="mt-8 grid grid-cols-3 rounded-2xl bg-[#14171e] border border-brand-border divide-x divide-brand-border p-6 sm:p-8 shadow-xl">
         <div className="px-2 sm:px-4">
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-zinc-400">
             Exercises
           </span>
-          <div className="font-oswald text-4xl sm:text-6xl font-black text-[#c4f000] mt-2">
+          <div className="font-oswald text-4xl sm:text-6xl font-black text-[#CCFF00] mt-2">
             {isLoaded ? totalExercises : 0}
           </div>
         </div>
@@ -109,7 +109,7 @@ const MyPlanPage = () => {
       {/* Controls Bar: Tabs on Left, Sort Dropdown on Right */}
       <div className="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         {/* Tabs Switcher */}
-        <div className="inline-flex rounded-xl bg-[#14171e] border border-[#232731] p-1">
+        <div className="inline-flex rounded-xl bg-[#14171e] border border-brand-border p-1">
           <button
             type="button"
             onClick={() => setActiveTab("today")}
@@ -141,7 +141,7 @@ const MyPlanPage = () => {
             <button
               type="button"
               onClick={() => setSortDropdownOpen((prev) => !prev)}
-              className="flex items-center gap-2 rounded-xl bg-[#14171e] border border-[#232731] px-4 py-2 text-xs sm:text-sm font-semibold text-white hover:border-[#353c4d] transition focus:outline-none"
+              className="flex items-center gap-2 rounded-xl bg-[#14171e] border border-brand-border px-4 py-2 text-xs sm:text-sm font-semibold text-white hover:border-[#353c4d] transition focus:outline-none"
               aria-haspopup="listbox"
               aria-expanded={sortDropdownOpen}
             >
@@ -166,7 +166,7 @@ const MyPlanPage = () => {
                       onClick={() => handleSortSelect(opt)}
                       className={`w-full text-left px-4 py-2 text-xs sm:text-sm transition flex items-center justify-between ${
                         sortBy === opt
-                          ? "bg-[#222735] text-[#c4f000] font-bold"
+                          ? "bg-[#222735] text-[#CCFF00] font-bold"
                           : "text-zinc-300 hover:bg-[#1f2430] hover:text-white"
                       }`}
                     >
@@ -184,14 +184,14 @@ const MyPlanPage = () => {
       {/* Loading State */}
       {!isLoaded ? (
         <div className="py-20 text-center flex flex-col items-center justify-center">
-          <Loader2 className="w-8 h-8 animate-spin text-[#c4f000] mb-3" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#CCFF00] mb-3" />
           <p className="font-oswald text-lg font-bold uppercase tracking-wider text-zinc-400">
             Loading workouts…
           </p>
         </div>
       ) : sortedWorkouts.length === 0 ? (
         /* Empty State */
-        <div className="mt-6 rounded-2xl border border-dashed border-[#232731] bg-[#111319] px-6 py-20 sm:py-28 text-center shadow-inner">
+        <div className="mt-6 rounded-2xl border border-dashed border-brand-border bg-[#111319] px-6 py-20 sm:py-28 text-center shadow-inner">
           <h2 className="font-oswald text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">
             NOTHING HERE YET
           </h2>
@@ -200,7 +200,7 @@ const MyPlanPage = () => {
           </p>
           <Link
             href="/"
-            className="mt-6 inline-flex rounded-full bg-[#c4f000] px-7 py-3 text-xs sm:text-sm font-black uppercase tracking-wider text-black transition-all hover:bg-[#b5de00] hover:shadow-lg hover:shadow-[#c4f000]/20 active:scale-95"
+            className="mt-6 inline-flex rounded-full bg-[#CCFF00] px-7 py-3 text-xs sm:text-sm font-black uppercase tracking-wider text-black transition-all hover:bg-brand-lime-hover hover:shadow-lg hover:shadow-[#CCFF00]/20 active:scale-95"
           >
             Go to workouts
           </Link>
@@ -217,12 +217,12 @@ const MyPlanPage = () => {
                 className={`group rounded-2xl bg-[#14171e] border p-4 sm:p-5 transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
                   completed
                     ? "border-[#2d3a24] bg-[#14181a]/90"
-                    : "border-[#232731] hover:border-[#353c4d]"
+                    : "border-brand-border hover:border-[#353c4d]"
                 }`}
               >
                 {/* Left section: Thumbnail + Details */}
                 <div className="flex items-center gap-4 sm:gap-6 min-w-0">
-                  <div className="relative h-20 w-28 sm:h-24 sm:w-36 flex-shrink-0 rounded-xl overflow-hidden bg-[#181c25]">
+                  <div className="relative h-20 w-28 sm:h-24 sm:w-36 shrink-0 rounded-xl overflow-hidden bg-[#181c25]">
                     <Image
                       src={workout.image}
                       alt={workout.name}
@@ -231,8 +231,8 @@ const MyPlanPage = () => {
                       className="object-cover"
                     />
                     {completed && (
-                      <div className="absolute inset-0 bg-[#0f1115]/60 flex items-center justify-center backdrop-blur-[1px]">
-                        <span className="bg-[#c4f000] text-black font-black text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-md">
+                      <div className="absolute inset-0 bg-brand-bg/60 flex items-center justify-center backdrop-blur-[1px]">
+                        <span className="bg-[#CCFF00] text-black font-black text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-md">
                           <Check className="w-3 h-3" /> Done
                         </span>
                       </div>
@@ -244,7 +244,7 @@ const MyPlanPage = () => {
                       className={`font-oswald text-lg sm:text-xl font-bold uppercase tracking-tight truncate transition-colors ${
                         completed
                           ? "line-through text-zinc-400"
-                          : "text-white group-hover:text-[#c4f000]"
+                          : "text-white group-hover:text-[#CCFF00]"
                       }`}
                     >
                       {workout.name}
@@ -274,7 +274,7 @@ const MyPlanPage = () => {
                 </div>
 
                 {/* Right section: Action Buttons */}
-                <div className="flex items-center justify-end gap-2.5 sm:gap-3 self-end sm:self-auto shrink-0 pt-2 sm:pt-0 border-t sm:border-0 border-[#232731] w-full sm:w-auto">
+                <div className="flex items-center justify-end gap-2.5 sm:gap-3 self-end sm:self-auto shrink-0 pt-2 sm:pt-0 border-t sm:border-0 border-brand-border w-full sm:w-auto">
                   {/* View Details button */}
                   <Link
                     href={`/exercise/${workout.id}`}
@@ -290,8 +290,8 @@ const MyPlanPage = () => {
                       onClick={() => toggleDone(workout.id)}
                       className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider transition ${
                         completed
-                          ? "bg-[#1f281a] border border-[#3b5428] text-[#c4f000]"
-                          : "bg-[#c4f000] text-black hover:bg-[#b5de00] shadow-sm hover:shadow-[#c4f000]/20 active:scale-95"
+                          ? "bg-[#1f281a] border border-[#3b5428] text-[#CCFF00]"
+                          : "bg-[#CCFF00] text-black hover:bg-brand-lime-hover shadow-sm hover:shadow-[#CCFF00]/20 active:scale-95"
                       }`}
                     >
                       <Check className="w-3.5 h-3.5" />
