@@ -1,7 +1,50 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@theme {
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-oswald: var(--font-oswald), sans-serif;
+  --color-brand-bg: #0f1115;
+  --color-brand-card: #15181f;
+  --color-brand-card-hover: #1b1f28;
+  --color-brand-border: #232731;
+  --color-brand-border-light: #2e3442;
+  --color-brand-lime: #c4f000;
+  --color-brand-lime-hover: #b5de00;
+  --color-brand-text: #e8eaef;
+  --color-brand-muted: #8e95a5;
+}
 
-:root {
-    --main-color: #c2f800;
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0f1115;
+  color: #e8eaef;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-oswald {
+  font-family: var(--font-oswald), sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f1115;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252932;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #373d4b;
 }
