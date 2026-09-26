@@ -6,14 +6,14 @@ import bannerImg from "@/assets/banner.png"
 const Hero = () => {
   return (
     <section className="w-full pt-6 pb-12">
-      <div className="relative overflow-hidden rounded-2xl bg-[#14171e] border border-[#232731] p-8 sm:p-10 lg:p-14 shadow-2xl">
+      <div className="relative overflow-hidden rounded-2xl bg-[#14171e] border border-brand-border p-8 sm:p-10 lg:p-14 shadow-2xl">
         {/* Subtle background glow */}
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#c4f000]/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#CCFF00]/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
           <div className="lg:col-span-7 flex flex-col items-start">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#c4f000] mb-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#CCFF00] mb-3">
               WORKOUT LIBRARY
             </span>
 
@@ -28,7 +28,7 @@ const Hero = () => {
 
             <a
               href="#library"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#c4f000] px-6 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider text-black transition-all hover:bg-[#b5de00] hover:shadow-lg hover:shadow-[#c4f000]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#c4f000] active:scale-95"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#CCFF00] px-6 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider text-black transition-all hover:bg-brand-lime-hover hover:shadow-lg hover:shadow-[#CCFF00]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#CCFF00] active:scale-95"
             >
               <span>BROWSE WORKOUTS</span>
               <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
@@ -37,9 +37,9 @@ const Hero = () => {
 
           {/* Hero Banner Visual */}
           <div className="lg:col-span-5 flex items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-95 sm:max-w-110 aspect-[5/4] flex items-center justify-center">
+            <div className="relative w-full max-w-95 sm:max-w-110 aspect-5/4 flex items-center justify-center">
               <Image
-                src="/banner.png"
+                src={bannerImg}
                 alt="Gym biomechanics illustration"
                 width={500}
                 height={400}

@@ -12,10 +12,10 @@ const WorkoutCard = ({ workout }: WorkoutCardProps) => {
   return (
     <Link
       href={`/exercise/${workout.id}`}
-      className="group flex flex-col overflow-hidden rounded-2xl bg-[#14171e] border border-[#232731] hover:border-[#363e4f] hover:bg-[#181c25] transition-all duration-300 shadow-md hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4f000]"
+      className="group flex flex-col overflow-hidden rounded-2xl bg-[#14171e] border border-brand-border hover:border-[#363e4f] hover:bg-[#181c25] transition-all duration-300 shadow-md hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#CCFF00]"
     >
       {/* Image demonstration */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#181b24]">
+      <div className="relative aspect-16/10 w-full overflow-hidden bg-[#181b24]">
         <Image
           src={workout.image}
           alt={`${workout.name} demonstration`}
@@ -23,7 +23,7 @@ const WorkoutCard = ({ workout }: WorkoutCardProps) => {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#14171e] via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#14171e] via-transparent to-transparent opacity-60" />
       </div>
 
       {/* Card Content */}
@@ -33,7 +33,7 @@ const WorkoutCard = ({ workout }: WorkoutCardProps) => {
           {workout.muscleGroups.map((tag) => (
             <span
               key={tag}
-              className="bg-[#c4f000] text-black text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full"
+              className="bg-[#CCFF00] text-black text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full"
             >
               {tag}
             </span>
@@ -41,7 +41,7 @@ const WorkoutCard = ({ workout }: WorkoutCardProps) => {
         </div>
 
         {/* Workout Name */}
-        <h3 className="font-oswald text-lg sm:text-xl font-bold uppercase tracking-tight text-white group-hover:text-[#c4f000] transition-colors line-clamp-1">
+        <h3 className="font-oswald text-lg sm:text-xl font-bold uppercase tracking-tight text-white group-hover:text-[#CCFF00] transition-colors line-clamp-1">
           {workout.name}
         </h3>
 
@@ -51,7 +51,7 @@ const WorkoutCard = ({ workout }: WorkoutCardProps) => {
         </p>
 
         {/* Stats Row */}
-        <div className="mt-4 pt-3 border-t border-[#232731] flex items-center justify-between text-xs text-zinc-300 font-medium">
+        <div className="mt-4 pt-3 border-t border-brand-border flex items-center justify-between text-xs text-zinc-300 font-medium">
           <div className="flex items-center gap-1.5 text-zinc-300">
             <Clock className="w-3.5 h-3.5 text-zinc-400" />
             <span>{workout.duration} min</span>

@@ -98,7 +98,7 @@ const LibrarySection = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search lifts or muscles..."
-            className="w-full rounded-xl bg-[#14171e] border border-[#232731] pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-zinc-500 focus:border-[#c4f000] focus:outline-none focus:ring-1 focus:ring-[#c4f000] transition"
+            className="w-full rounded-xl bg-[#14171e] border border-brand-border pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-zinc-500 focus:border-[#CCFF00] focus:outline-none focus:ring-1 focus:ring-[#CCFF00] transition"
           />
           {searchTerm && (
             <button
@@ -121,8 +121,8 @@ const LibrarySection = () => {
               onClick={() => setSelectedCategory(cat)}
               className={`shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition ${
                 isSelected
-                  ? "bg-[#c4f000] text-black shadow-sm"
-                  : "bg-[#14171e] border border-[#232731] text-zinc-400 hover:text-white hover:border-[#384052]"
+                  ? "bg-[#CCFF00] text-black shadow-sm"
+                  : "bg-[#14171e] border border-brand-border text-zinc-400 hover:text-white hover:border-[#384052]"
               }`}
             >
               {cat}
@@ -134,7 +134,7 @@ const LibrarySection = () => {
       {/* Loading Skeleton Animation */}
       {loading && (
         <div className="flex flex-col items-center justify-center py-20">
-          <div className="flex items-center gap-3 text-[#c4f000] mb-4">
+          <div className="flex items-center gap-3 text-[#CCFF00] mb-4">
             <Loader2 className="w-8 h-8 animate-spin" />
           </div>
           <p className="font-oswald text-lg font-bold uppercase tracking-wider text-zinc-300">
@@ -144,16 +144,16 @@ const LibrarySection = () => {
             {Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="rounded-2xl bg-[#14171e] border border-[#232731] p-4 flex flex-col gap-3 animate-pulse"
+                className="rounded-2xl bg-[#14171e] border border-brand-border p-4 flex flex-col gap-3 animate-pulse"
               >
-                <div className="aspect-[16/10] w-full rounded-xl bg-[#1a1e27]" />
+                <div className="aspect-16/10 w-full rounded-xl bg-[#1a1e27]" />
                 <div className="flex gap-2">
                   <div className="h-4 w-12 rounded-full bg-[#252b37]" />
                   <div className="h-4 w-12 rounded-full bg-[#252b37]" />
                 </div>
                 <div className="h-6 w-3/4 rounded bg-[#252b37]" />
                 <div className="h-4 w-1/2 rounded bg-[#252b37]" />
-                <div className="mt-4 pt-3 border-t border-[#232731] flex justify-between">
+                <div className="mt-4 pt-3 border-t border-brand-border flex justify-between">
                   <div className="h-4 w-12 rounded bg-[#252b37]" />
                   <div className="h-4 w-12 rounded bg-[#252b37]" />
                   <div className="h-4 w-8 rounded bg-[#252b37]" />
@@ -178,7 +178,7 @@ const LibrarySection = () => {
               setSearchTerm("");
               setSelectedCategory("All");
             }}
-            className="rounded-full bg-[#c4f000] px-5 py-2 text-xs font-bold uppercase tracking-wider text-black hover:bg-[#b5de00] transition"
+            className="rounded-full bg-[#CCFF00] px-5 py-2 text-xs font-bold uppercase tracking-wider text-black hover:bg-[#a7c61e] transition"
           >
             Reset Filters
           </button>

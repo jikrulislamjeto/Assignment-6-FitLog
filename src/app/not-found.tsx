@@ -6,10 +6,10 @@ const NotFound = () => {
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 py-28 text-center flex flex-col items-center justify-center">
       <div className="flex items-center justify-center w-20 h-20 rounded-2xl bg-[#171b24] border border-[#2b3140] mb-6 shadow-2xl">
-        <Dumbbell className="w-10 h-10 text-[#c4f000] rotate-45" />
+        <Dumbbell className="w-10 h-10 text-[#CCFF00] rotate-45" />
       </div>
 
-      <span className="text-xs font-bold uppercase tracking-widest text-[#c4f000] mb-2">
+      <span className="text-xs font-bold uppercase tracking-widest text-[#CCFF00] mb-2">
         404 ERROR
       </span>
 
@@ -24,7 +24,7 @@ const NotFound = () => {
 
       <Link
         href="/"
-        className="inline-flex items-center gap-2 rounded-full bg-[#c4f000] px-7 py-3 text-xs sm:text-sm font-black uppercase tracking-wider text-black transition-all hover:bg-[#b5de00] hover:shadow-lg hover:shadow-[#c4f000]/20 active:scale-95"
+        className="inline-flex items-center gap-2 rounded-full bg-[#CCFF00] px-7 py-3 text-xs sm:text-sm font-black uppercase tracking-wider text-black transition-all hover:bg-brand-lime-hover hover:shadow-lg hover:shadow-[#CCFF00]/20 active:scale-95"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Workouts</span>

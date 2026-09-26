@@ -79,7 +79,7 @@ const ExerciseDetailPage = ({ params }: ExercisePageProps) => {
   if (loading) {
     return (
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20 flex flex-col items-center justify-center">
-        <Loader2 className="w-10 h-10 animate-spin text-[#c4f000] mb-4" />
+        <Loader2 className="w-10 h-10 animate-spin text-[#CCFF00] mb-4" />
         <p className="font-oswald text-xl uppercase tracking-wider text-zinc-300">
           Loading workout details...
         </p>
@@ -120,7 +120,7 @@ const ExerciseDetailPage = ({ params }: ExercisePageProps) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Side — Visual Media */}
         <div className="lg:col-span-6">
-          <div className="relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] w-full rounded-2xl overflow-hidden bg-[#151820] border border-[#232731] shadow-2xl">
+          <div className="relative aspect-4/5 sm:aspect-square lg:aspect-4/5 w-full rounded-2xl overflow-hidden bg-[#151820] border border-brand-border shadow-2xl">
             <Image
               src={workout.image}
               alt={`${workout.name} workout visual`}
@@ -129,7 +129,7 @@ const ExerciseDetailPage = ({ params }: ExercisePageProps) => {
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0f1115]/80 via-transparent to-transparent opacity-40" />
+            <div className="absolute inset-0 bg-linear-to-t from-brand-bg/80 via-transparent to-transparent opacity-40" />
           </div>
         </div>
 
@@ -150,7 +150,7 @@ const ExerciseDetailPage = ({ params }: ExercisePageProps) => {
             {workout.muscleGroups.map((tag) => (
               <span
                 key={tag}
-                className="bg-[#c4f000] text-black text-xs font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full"
+                className="bg-[#CCFF00] text-black text-xs font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full"
               >
                 {tag}
               </span>
@@ -158,7 +158,7 @@ const ExerciseDetailPage = ({ params }: ExercisePageProps) => {
           </div>
 
           {/* Key Specs Table Panel */}
-          <div className="mt-8 rounded-2xl bg-[#14171e] border border-[#232731] divide-y divide-[#232731] overflow-hidden shadow-lg">
+          <div className="mt-8 rounded-2xl bg-[#14171e] border border-brand-border divide-y divide-brand-border overflow-hidden shadow-lg">
             {keySpecs.map((spec) => (
               <div
                 key={spec.label}
@@ -186,7 +186,7 @@ const ExerciseDetailPage = ({ params }: ExercisePageProps) => {
                   key={idx}
                   className="flex items-start gap-3.5 text-xs sm:text-sm text-zinc-300 leading-relaxed"
                 >
-                  <span className="flex-shrink-0 font-bold text-zinc-400 text-sm">
+                  <span className="shrink-0 font-bold text-zinc-400 text-sm">
                     {idx + 1}.
                   </span>
                   <span>{step}</span>
@@ -203,15 +203,15 @@ const ExerciseDetailPage = ({ params }: ExercisePageProps) => {
               onClick={() => addToTodayPlan(workout)}
               disabled={inPlan || isCapReached}
               className={`flex-1 flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider transition shadow-lg ${inPlan
-                  ? "bg-[#1f281a] border border-[#3b5428] text-[#c4f000] cursor-default"
+                  ? "bg-[#1f281a] border border-[#3b5428] text-[#CCFF00] cursor-default"
                   : isCapReached
                     ? "bg-[#1c1f26] border border-[#2c303c] text-zinc-500 cursor-not-allowed"
-                    : "bg-[#c4f000] text-black hover:bg-[#b5de00] hover:shadow-[#c4f000]/20 active:scale-98"
+                    : "bg-[#CCFF00] text-black hover:bg-brand-lime-hover hover:shadow-[#CCFF00]/20 active:scale-98"
                 }`}
             >
               {inPlan ? (
                 <>
-                  <Check className="w-4 h-4 text-[#c4f000]" />
+                  <Check className="w-4 h-4 text-[#CCFF00]" />
                   <span>In Today&apos;s Plan</span>
                 </>
               ) : (
@@ -236,7 +236,7 @@ const ExerciseDetailPage = ({ params }: ExercisePageProps) => {
             >
               {saved ? (
                 <>
-                  <BookmarkCheck className="w-4 h-4 text-[#c4f000]" />
+                  <BookmarkCheck className="w-4 h-4 text-[#CCFF00]" />
                   <span>Saved</span>
                 </>
               ) : (
