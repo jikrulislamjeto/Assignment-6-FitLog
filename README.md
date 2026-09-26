@@ -16,7 +16,7 @@ The project is deployed using Vercel.
 
 Live Website
 
-🔗 
+🔗 https://fit-log-drab-gamma.vercel.app/
 
 GitHub Repository
 
